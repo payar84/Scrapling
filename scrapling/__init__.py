@@ -3,6 +3,10 @@
 Scrapling provides a high-level interface for web scraping with support
 for both static and dynamic content, smart element detection, and
 automatic adaptation to website changes.
+
+Personal fork notes:
+- Using this for learning purposes and personal scraping projects
+- See upstream: https://github.com/D4Vinci/Scrapling
 """
 
 __version__ = "0.2.9"
