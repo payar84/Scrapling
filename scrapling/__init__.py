@@ -6,6 +6,7 @@ automatic adaptation to website changes.
 
 Personal fork notes:
 - Using this for learning purposes and personal scraping projects
+- Added convenience alias: use `AutoFetcher` as shorthand for `StealthyFetcher`
 - See upstream: https://github.com/D4Vinci/Scrapling
 """
 
@@ -23,11 +24,15 @@ from scrapling.core.page import Page
 from scrapling.core.element import Element
 from scrapling.core.storage import StorageSystem
 
+# Personal convenience alias - StealthyFetcher is what I use most often
+AutoFetcher = StealthyFetcher
+
 __all__ = [
     "Fetcher",
     "AsyncFetcher",
     "PlayWrightFetcher",
     "StealthyFetcher",
+    "AutoFetcher",
     "Page",
     "Element",
     "StorageSystem",
