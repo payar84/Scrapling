@@ -17,9 +17,9 @@ logger = logging.getLogger(__name__)
 class BaseConfig:
     """Holds common configuration options for all fetchers."""
 
-    DEFAULT_TIMEOUT = 30  # seconds
+    DEFAULT_TIMEOUT = 60  # increased from 30s; many sites are slow to respond
     DEFAULT_RETRIES = 3
-    DEFAULT_DELAY = 0  # seconds between retries
+    DEFAULT_DELAY = 1.0  # add a small default delay between retries to be polite
 
     def __init__(
         self,
@@ -94,18 +94,4 @@ class BaseFetcher(ABC):
                 self._session = None
 
     # ------------------------------------------------------------------
-    # Context-manager support
-    # ------------------------------------------------------------------
-
-    def __enter__(self) -> "BaseFetcher":
-        return self
-
-    def __exit__(self, *_: Any) -> None:
-        self.close()
-
-    def __repr__(self) -> str:  # pragma: no cover
-        return (
-            f"<{self.__class__.__name__} "
-            f"timeout={self.config.timeout} "
-            f"retries={self.config.retries}>"
-        )
+    # Context-
