@@ -8,6 +8,7 @@ Personal fork notes:
 - Using this for learning purposes and personal scraping projects
 - Added convenience alias: use `AutoFetcher` as shorthand for `StealthyFetcher`
 - Added `__version_info__` tuple for easier version comparisons
+- Added `NimbusParser` as alias for `Page` (my preferred name for the parser)
 - See upstream: https://github.com/D4Vinci/Scrapling
 """
 
@@ -29,6 +30,9 @@ from scrapling.core.storage import StorageSystem
 # Personal convenience alias - StealthyFetcher is what I use most often
 AutoFetcher = StealthyFetcher
 
+# Personal alias - I find 'Page' ambiguous; 'Parser' makes the intent clearer
+Parser = Page
+
 __all__ = [
     "Fetcher",
     "AsyncFetcher",
@@ -36,6 +40,7 @@ __all__ = [
     "StealthyFetcher",
     "AutoFetcher",
     "Page",
+    "Parser",
     "Element",
     "StorageSystem",
     "__version__",
