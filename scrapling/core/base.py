@@ -94,12 +94,13 @@ class BaseFetcher(ABC):
         """Release any resources held by the fetcher (e.g. open sessions)."""
         if self._session is not None:
             try:
-                # Some session objects use 'close', others use 'aclose' (async).
-                # We handle the sync case here; async subclasses should override.
-                close_fn = getattr(self._session, "close", None)
-                if callable(close_fn):
-                    close_fn()
-            except Exception as exc:  # noqa: BLE001
-                logger.warning("Failed to close session cleanly: %s", exc)
+                # Some HTTP clients expose a .close() method; others use a
+                # context manager. Try .close() first, then fall back silently.
+                self._session.close()
+            except AttributeError:
+                logger.debug(
+                    "Session object %r has no close() method; skipping.",
+                    self._session,
+                )
             finally:
                 self._session = None
