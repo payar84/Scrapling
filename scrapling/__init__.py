@@ -14,6 +14,7 @@ Personal fork notes:
 - Added `__all__` entry for `__version_info__` (was missing, noticed during dir() check)
 - Added `StaticFetcher` alias for `Fetcher` (clearer name for non-JS fetching use case)
 - Added `AsyncFetcher` to `__all__` (was present but worth noting explicitly)
+- Added `NimbusParser` alias to `__all__` (forgot this in the original fork, noticed now)
 - See upstream: https://github.com/D4Vinci/Scrapling
 
 Quick usage example::
@@ -50,6 +51,9 @@ StaticFetcher = Fetcher
 # Personal alias - I find 'Page' ambiguous; 'Parser' makes the intent clearer
 Parser = Page
 
+# Another personal alias for Page - used in some of my older scripts
+NimbusParser = Page
+
 __all__ = [
     "Fetcher",
     "StaticFetcher",
@@ -59,6 +63,7 @@ __all__ = [
     "AutoFetcher",
     "Page",
     "Parser",
+    "NimbusParser",
     "Element",
     "StorageSystem",
     "__version__",
