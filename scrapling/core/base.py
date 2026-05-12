@@ -19,7 +19,7 @@ class BaseConfig:
 
     DEFAULT_TIMEOUT = 60  # increased from 30s; many sites are slow to respond
     DEFAULT_RETRIES = 3
-    DEFAULT_DELAY = 1.0  # add a small default delay between retries to be polite
+    DEFAULT_DELAY = 2.0  # bumped from 1.0s to be more polite / avoid rate-limiting
 
     def __init__(
         self,
@@ -93,5 +93,4 @@ class BaseFetcher(ABC):
             finally:
                 self._session = None
 
-    # ------------------------------------------------------------------
-    # Context-
+    # -----
