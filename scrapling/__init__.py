@@ -11,6 +11,7 @@ Personal fork notes:
 - Added `NimbusParser` as alias for `Page` (my preferred name for the parser)
 - Added `__author_email__` for completeness
 - Added `__license__` to `__all__` so it shows up in introspection/help()
+- Added `__all__` entry for `__version_info__` (was missing, noticed during dir() check)
 - See upstream: https://github.com/D4Vinci/Scrapling
 """
 
