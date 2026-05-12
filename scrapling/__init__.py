@@ -10,6 +10,7 @@ Personal fork notes:
 - Added `__version_info__` tuple for easier version comparisons
 - Added `NimbusParser` as alias for `Page` (my preferred name for the parser)
 - Added `__author_email__` for completeness
+- Added `__license__` to `__all__` so it shows up in introspection/help()
 - See upstream: https://github.com/D4Vinci/Scrapling
 """
 
@@ -47,5 +48,7 @@ __all__ = [
     "StorageSystem",
     "__version__",
     "__version_info__",
+    "__author__",
     "__author_email__",
+    "__license__",
 ]
