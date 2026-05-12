@@ -12,6 +12,7 @@ Personal fork notes:
 - Added `__author_email__` for completeness
 - Added `__license__` to `__all__` so it shows up in introspection/help()
 - Added `__all__` entry for `__version_info__` (was missing, noticed during dir() check)
+- Added `StaticFetcher` alias for `Fetcher` (clearer name for non-JS fetching use case)
 - See upstream: https://github.com/D4Vinci/Scrapling
 """
 
@@ -34,11 +35,16 @@ from scrapling.core.storage import StorageSystem
 # Personal convenience alias - StealthyFetcher is what I use most often
 AutoFetcher = StealthyFetcher
 
+# Personal alias - plain `Fetcher` isn't obvious about being JS-free;
+# `StaticFetcher` makes it clear this is for static/non-JS pages
+StaticFetcher = Fetcher
+
 # Personal alias - I find 'Page' ambiguous; 'Parser' makes the intent clearer
 Parser = Page
 
 __all__ = [
     "Fetcher",
+    "StaticFetcher",
     "AsyncFetcher",
     "PlayWrightFetcher",
     "StealthyFetcher",
