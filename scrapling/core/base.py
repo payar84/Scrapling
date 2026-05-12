@@ -80,6 +80,13 @@ class BaseFetcher(ABC):
         -------
         Any
             A Scrapling response/page object.
+
+        Raises
+        ------
+        NotImplementedError
+            If the subclass has not implemented this method.
+        ValueError
+            If ``url`` is an empty string or not a string at all.
         """
         raise NotImplementedError
 
@@ -93,4 +100,4 @@ class BaseFetcher(ABC):
             finally:
                 self._session = None
 
-    # -----
+    # ---
