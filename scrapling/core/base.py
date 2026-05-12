@@ -94,10 +94,12 @@ class BaseFetcher(ABC):
         """Release any resources held by the fetcher (e.g. open sessions)."""
         if self._session is not None:
             try:
-                self._session.close()
+                # Some session objects use 'close', others use 'aclose' (async).
+                # We handle the sync case here; async subclasses should override.
+                close_fn = getattr(self._session, "close", None)
+                if callable(close_fn):
+                    close_fn()
             except Exception as exc:  # noqa: BLE001
-                logger.debug("Error while closing session: %s", exc)
+                logger.warning("Failed to close session cleanly: %s", exc)
             finally:
                 self._session = None
-
-    # ---
