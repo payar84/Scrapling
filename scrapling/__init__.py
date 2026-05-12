@@ -13,7 +13,15 @@ Personal fork notes:
 - Added `__license__` to `__all__` so it shows up in introspection/help()
 - Added `__all__` entry for `__version_info__` (was missing, noticed during dir() check)
 - Added `StaticFetcher` alias for `Fetcher` (clearer name for non-JS fetching use case)
+- Added `AsyncFetcher` to `__all__` (was present but worth noting explicitly)
 - See upstream: https://github.com/D4Vinci/Scrapling
+
+Quick usage example::
+
+    from scrapling import AutoFetcher, Parser
+
+    page = AutoFetcher.fetch('https://example.com')
+    title = page.find('h1').text
 """
 
 __version__ = "0.2.9"
